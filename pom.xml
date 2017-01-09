@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<java-version>1.8</java-version>
-		<org.springframework-version>4.2.6.RELEASE</org.springframework-version>
+		<org.springframework-version>4.3.5.RELEASE</org.springframework-version>
 		<servlet-version>3.1.0</servlet-version>
 		<jstl-version>1.2</jstl-version>
 		<commons-dbcp-vesion>1.4</commons-dbcp-vesion>
@@ -132,7 +132,7 @@
 				<version>2.4</version>
 				<configuration>
 					<warSourceDirectory>src/main/webapp</warSourceDirectory>
-					<warName>hellospringj</warName>
+					<warName>xprj</warName>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
