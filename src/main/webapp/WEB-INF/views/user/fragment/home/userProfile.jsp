@@ -8,6 +8,8 @@
      <div class="panel-heading">
         <div class="row">
            <div class="col-lg-12">
+           <legend>个人信息
+           </legend>
               <div class="col-xs-12 col-sm-4">
                  <figure>
                     <img class="img-circle img-responsive" alt="" src="<c:url value='/static/img/2.jpg' />">

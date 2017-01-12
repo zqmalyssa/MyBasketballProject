@@ -2,35 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
-
+<!-- forms -->
 <div class="card">
-     <div class="panel-heading">
-        <div class="row">
-           <div class="col-lg-12">
-           			<legend>个人信息
-           			<span class="pull-right">
-           			<button type="button" class="btn btn-default">
-				    	<span class="glyphicon glyphicon-pencil"></span>
-					</button>
-           			</span>
-           			
-           			
-           			</legend>
-              <div class="col-xs-12 col-sm-4">
-                 <figure>
-                    <img class="img-circle img-responsive" alt="" src="<c:url value='/static/img/2.jpg' />">
-                 </figure>
-        		<input type="file" class="text-center center-block well well-sm">
-
-              </div>
-              <div class="col-xs-12 col-sm-8">
 
 	<form class="form-horizontal">
 		<fieldset>
 			
 			<!-- Form Name -->
-
+			<legend>新的比赛信息</legend>
 			
 			<!-- Text input-->
 			<div class="form-group">
@@ -86,18 +65,18 @@
 			    
 			  </div>
 			</div>
-			<!-- label input-->
+			
+			<!-- Button (Double) -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" >Gendel</label>
-			  <div class="col-md-4">
-			   <p class="form-control-static">email@example.com</p>			    
+			  <label class="col-md-4 control-label" for="button1id">Select to register</label>
+			  <div class="col-md-8">
+			    <button id="button1id" name="button1id" class="btn btn-success">Register</button>
+			    <button id="button2id" name="button2id" class="btn btn-default">Remove</button>
 			  </div>
 			</div>
 		
 		</fieldset>
 	</form>
-              </div>
-           </div>
-        </div>
-     </div>
-</div>        
+</div>  
+<!-- forms -->
+        
