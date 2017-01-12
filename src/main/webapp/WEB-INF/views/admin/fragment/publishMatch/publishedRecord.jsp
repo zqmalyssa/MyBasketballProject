@@ -7,7 +7,7 @@
   <div class="panel-heading">
     <div class="row">
       <div class="col col-xs-6">
-        <h3 class="panel-title">预定比赛</h3>
+        <h3 class="panel-title">已发布的比赛信息</h3>
       </div>
 
     </div>

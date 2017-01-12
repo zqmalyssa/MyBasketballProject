@@ -19,10 +19,11 @@
 	<div class="container">
 		<div class="row">
 		    <div class="col-sm-3">
-		    	<jsp:include page="../leftNav.jsp"></jsp:include>
+		     <jsp:include page="../leftNav.jsp"></jsp:include>
 		    </div>
 		    <div class="col-sm-9">
-				<jsp:include page="fragment/reserveMatch/reservedRecord.jsp"></jsp:include>
+		     <jsp:include page="fragment/publishMatch/newMatch.jsp"></jsp:include>
+		     <jsp:include page="fragment/publishMatch/publishedRecord.jsp"></jsp:include>
 		    </div>
 		    
 		</div>
