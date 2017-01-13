@@ -3,6 +3,7 @@ package com.fm.xprj.service;
 
 import java.util.List;
 
+import com.fm.xprj.model.Match;
 import com.fm.xprj.model.User;
 
 public interface IUserService {
@@ -14,7 +15,8 @@ public interface IUserService {
 	public User updateUser(User user);
 	public List<User> getAllUsers();
 	public void reserveMatch(int userId,int matchId);
-	
+	public void cancelReservedMatch(int userId,int matchId);
+	public List<Match> getAllMatches();
 	
 	public User logIn(String loginId,String loginPwd);
 	

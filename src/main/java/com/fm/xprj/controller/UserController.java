@@ -1,5 +1,7 @@
 package com.fm.xprj.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.fm.xprj.model.Match;
 import com.fm.xprj.model.User;
 import com.fm.xprj.service.IUserService;
 import com.fm.xprj.service.UserService;
@@ -74,7 +77,12 @@ public class UserController {
 		return "/user/myProfile";
 	}
 	@GetMapping("/users/{id}/reserveMatch")
-	public String ShowReserveMatchPage(){
+	public String ShowReserveMatchPage(@PathVariable("id") int id,Model model){
+		List<Match> matchs=userService.getAllMatches();
+		model.addAttribute("matchs",matchs);
+		
+		User user=userService.getUserById(id);
+		model.addAttribute("user", user);
 		return "/user/reserveMatch";
 	}
 	@PostMapping("/users/reserveMatch")

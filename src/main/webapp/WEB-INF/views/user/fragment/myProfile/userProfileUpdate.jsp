@@ -9,6 +9,7 @@
 <c:url value="/users/profile" var="updateUserUrl" />
 <div class="card">
    <springform:form action="${updateUserUrl}" method="post" modelAttribute="user" cssClass="form-horizontal">
+    <springform:hidden path="id" value="${user.id}"/>
      <div class="panel-heading">
         <div class="row">
            <div class="col-lg-12">
@@ -28,35 +29,40 @@
                </div>
               <div class="col-xs-12 col-sm-8">
 
-						<fieldset>							
+						<fieldset>
 							<!-- Text input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="user.name"><spring:message code="user.name" /></label>  
+							  <label class="col-md-4 control-label" for="nickName"><spring:message code="user.nickName" /></label>  
 							  <div class="col-md-4">
-								 <springform:input path="name" cssClass="form-control input-md"  />
+								 <springform:input path="nickName" cssClass="form-control input-md"  />
 							  </div>
 							</div>
-							
 							<!-- Text input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="user.name"><spring:message code="user.gender" /></label>  
-							  <div class="col-md-4">
-								 <springform:input path="gender" class="form-control input-md"  />
-							  </div>
-							</div>
-							
-							<!-- Text input-->
-							<div class="form-group">
-							  <label class="col-md-4 control-label" for="user.birthDate"><spring:message code="user.birthDate" /></label>  
+							  <label class="col-md-4 control-label" for="birthDate"><spring:message code="user.birthDate" /></label>  
 							  <div class="col-md-4">
 								 <springform:input path="birthDate" cssClass="form-control input-md"  />
 							  </div>
+							</div>	
+							<!-- Text input-->
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="email"><spring:message code="user.email" /></label>  
+							  <div class="col-md-4">
+								 <springform:input path="email" cssClass="form-control input-md"  />
+							  </div>
 							</div>
 							<!-- Text input-->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="user.nickName"><spring:message code="user.nickName" /></label>  
+							  <label class="col-md-4 control-label" for="phoneNumber"><spring:message code="user.phoneNumber" /></label>  
 							  <div class="col-md-4">
-								 <springform:input path="nickName" cssClass="form-control input-md"  />
+								 <springform:input path="phoneNumber" cssClass="form-control input-md"  />
+							  </div>
+							</div>
+							<!-- Text input-->
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="teamPosition"><spring:message code="user.teamPosition" /></label>  
+							  <div class="col-md-4">
+								 <springform:input path="teamPosition" cssClass="form-control input-md"  />
 							  </div>
 							</div>
 							<!-- Text input-->
@@ -71,6 +77,13 @@
 							  <label class="col-md-4 control-label" for="weight"><spring:message code="user.weight" /></label>  
 							  <div class="col-md-4">
 								 <springform:input path="weight" cssClass="form-control input-md"  />
+							  </div>
+							</div>
+							<!-- Text input-->
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="ranking"><spring:message code="user.ranking" /></label>  
+							  <div class="col-md-4">
+								 <springform:input path="ranking" cssClass="form-control input-md"  />
 							  </div>
 							</div>
 						
