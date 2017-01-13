@@ -6,7 +6,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
 
 
-<c:url value="/user/update" var="updateUserUrl" />
+<c:url value="/users/profile" var="updateUserUrl" />
 <div class="card">
    <springform:form action="${updateUserUrl}" method="post" modelAttribute="user" cssClass="form-horizontal">
      <div class="panel-heading">
