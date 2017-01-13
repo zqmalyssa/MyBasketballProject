@@ -7,16 +7,15 @@ public class User {
 	private int id;
 	private String loginId;
 	private String loginPwd;
-	private String name;
 	private String nickName;
-	private String gender;
+	private String birthDate;
 	private String email;
 	private String phoneNumber;
-	private String birthDate;
 	private String teamPosition;
 	private int height;
 	private double weight;
 	private String ranking;
+	private String iconUrl;
 	public int getId() {
 		return id;
 	}
@@ -35,24 +34,17 @@ public class User {
 	public void setLoginPwd(String loginPwd) {
 		this.loginPwd = loginPwd;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getNickName() {
 		return nickName;
 	}
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
-	public String getGender() {
-		return gender;
+	public String getBirthDate() {
+		return birthDate;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 	public String getEmail() {
 		return email;
@@ -65,13 +57,6 @@ public class User {
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
-	}
-
-	public String getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
 	}
 	public String getTeamPosition() {
 		return teamPosition;
@@ -97,14 +82,20 @@ public class User {
 	public void setRanking(String ranking) {
 		this.ranking = ranking;
 	}
-	@Override
-	public String toString() {
-		return "User [name=" + name + ", nickName=" + nickName + ", gender=" + gender + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", birthDate=" + birthDate + ", teamPosition=" + teamPosition
-				+ ", height=" + height + ", weight=" + weight + ", ranking=" + ranking + "]";
+	public String getIconUrl() {
+		return iconUrl;
+	}
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", loginId=" + loginId + ", loginPwd=" + loginPwd + ", nickName=" + nickName
+				+ ", birthDate=" + birthDate + ", email=" + email + ", phoneNumber=" + phoneNumber + ", teamPosition="
+				+ teamPosition + ", height=" + height + ", weight=" + weight + ", ranking=" + ranking + ", iconUrl="
+				+ iconUrl + "]";
+	}
+
 
 }

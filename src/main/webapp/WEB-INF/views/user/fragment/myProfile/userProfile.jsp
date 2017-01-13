@@ -9,6 +9,7 @@
 <c:url value="/users/${user.id}/profile/update" var="updateUserUrl" />
 <div class="card">
    <springform:form action="${updateUserUrl}" method="get" modelAttribute="user" cssClass="form-horizontal">
+    <springform:hidden path="id" value="${user.id}"/>
      <div class="panel-heading">
         <div class="row">
            <div class="col-lg-12">
@@ -30,15 +31,9 @@
 
 						<fieldset>							
 							<div class="form-group">
-							   <label class="col-md-4 control-label" for="name"><spring:message code="user.name" /></label>  
+							   <label class="col-md-4 control-label" for="nickName"><spring:message code="user.nickName" /></label>  
 							  <div class="col-md-4">
-							   <p class="form-control-static">${user.name}</p>			    
-							  </div>
-							</div>
-							<div class="form-group">
-							   <label class="col-md-4 control-label" for="gender"><spring:message code="user.gender" /></label>  
-							  <div class="col-md-4">
-							   <p class="form-control-static">${user.gender}</p>			    
+							   <p class="form-control-static">${user.nickName}</p>			    
 							  </div>
 							</div>
 							<div class="form-group">
@@ -48,9 +43,21 @@
 							  </div>
 							</div>
 							<div class="form-group">
-							   <label class="col-md-4 control-label" for="nickName"><spring:message code="user.nickName" /></label>  
+							   <label class="col-md-4 control-label" for="email"><spring:message code="user.email" /></label>  
 							  <div class="col-md-4">
-							   <p class="form-control-static">${user.nickName}</p>			    
+							   <p class="form-control-static">${user.email}</p>			    
+							  </div>
+							</div>
+							<div class="form-group">
+							   <label class="col-md-4 control-label" for="phoneNumber"><spring:message code="user.phoneNumber" /></label>  
+							  <div class="col-md-4">
+							   <p class="form-control-static">${user.phoneNumber}</p>			    
+							  </div>
+							</div>
+							<div class="form-group">
+							   <label class="col-md-4 control-label" for="teamPosition"><spring:message code="user.teamPosition" /></label>  
+							  <div class="col-md-4">
+							   <p class="form-control-static">${user.teamPosition}</p>			    
 							  </div>
 							</div>
 							<div class="form-group">
@@ -63,6 +70,12 @@
 							   <label class="col-md-4 control-label" for="weight"><spring:message code="user.weight" /></label>  
 							  <div class="col-md-4">
 							   <p class="form-control-static">${user.weight}</p>			    
+							  </div>
+							</div>
+							<div class="form-group">
+							   <label class="col-md-4 control-label" for="ranking"><spring:message code="user.ranking" /></label>  
+							  <div class="col-md-4">
+							   <p class="form-control-static">${user.ranking}</p>			    
 							  </div>
 							</div>
 						
