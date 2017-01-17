@@ -3,6 +3,7 @@ package com.fm.xprj.service;
 
 import java.util.List;
 
+import com.fm.xprj.exception.FMException;
 import com.fm.xprj.model.Match;
 import com.fm.xprj.model.User;
 
@@ -18,7 +19,8 @@ public interface IUserService {
 	public void cancelReservedMatch(int userId,int matchId);
 	public List<Match> getAllMatches();
 	
-	public User logIn(String loginId,String loginPwd);
+	public User logIn(String loginId,String loginPwd) throws FMException;
+	public User register(User user) throws FMException;
 	
 	
 

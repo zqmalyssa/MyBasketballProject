@@ -23,7 +23,8 @@
 <c:url value="/register" var="registerUrl" />
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
+    <div class="${fmMsgCss}" role="alert">${fmMsg}</div>
+        <div class="col-sm-6 col-md-4 col-md-offset-4">      	               			              
             <div class="account-wall">
                 <div id="my-tab-content" class="tab-content">
     					<div class="tab-pane active" id="login">

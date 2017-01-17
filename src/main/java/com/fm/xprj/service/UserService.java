@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fm.xprj.dao.IUserDao;
+import com.fm.xprj.exception.FMException;
+import com.fm.xprj.exception.FMExceptionID;
+import com.fm.xprj.exception.util.FMMessage;
+import com.fm.xprj.exception.util.UserMessages;
 import com.fm.xprj.model.Match;
 import com.fm.xprj.model.User;
 
@@ -63,9 +67,16 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User logIn(String loginId, String loginPwd) {
-		// TODO Auto-generated method stub
-		return userDao.login(loginId, loginPwd);
+	public User logIn(String loginId, String loginPwd) throws FMException {
+		User user=userDao.login(loginId, loginPwd);
+		if(null==user){
+			FMMessage fmMessage=new FMMessage(UserMessages.USER_INVALID_USERNAME_PASSWORD);
+			FMException fmException=new FMException(FMExceptionID.ERROR_USER_INVALID_USERNAME_PASSWORD, fmMessage);
+			throw fmException;
+		}else{
+			return user;
+		}
+		
 	}
 
 	@Override
@@ -78,6 +89,21 @@ public class UserService implements IUserService {
 	public List<Match> getAllMatches() {
 		
 		return userDao.getAllMatches();
+	}
+
+	@Override
+	public User register(User user) throws FMException {
+		User tmpUser= userDao.getUserByLoginId(user.getLoginId());
+		if(tmpUser!=null){
+			String[] args=new String[]{user.getLoginId()};
+			FMMessage fmMessage=new FMMessage(UserMessages.USER_DUPLICATE_LOGIN_ID,args);
+			FMException fmException=new FMException(FMExceptionID.ERROR_USER_DUPLICATE_LOGIN_ID, fmMessage);
+			throw fmException;
+		}else {
+			userDao.createUser(user);			
+		}
+		
+		return user;
 	}
 
 }
