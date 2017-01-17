@@ -16,40 +16,45 @@ import com.fm.xprj.model.Match;
 import com.fm.xprj.model.User;
 
 @Repository
-public interface IUserDao {
+public interface IAdminDao {
 	
-	public static final String createUser="insert into user (username,password,nickname,birthday,email,telphone,team_position,height,weight,ranking,icon_url) values(#{user.loginId},#{user.loginPwd},#{user.nickName},#{user.birthDate},#{user.email},#{user.phoneNumber},#{user.teamPosition},#{user.height},#{user.weight},#{user.ranking},#{user.iconUrl})";
-	public static final String getUserById="select * from user where id = #{id}";
+	public static final String createMatch="insert into matchs (match_type,match_date,match_location) values(#{match.matchType},#{match.matchDate},#{match.matchLocation})";
+	public static final String getMatchById="select * from matchs where id = #{id}";
+	public static final String getMatchByPage="select * from matchs LIMIT #{pn},#{ps}";
 	public static final String getUserByLoginId="select * from user where username = #{id}";
 	public static final String deleteUserById="delete from user where id=#{id}";
-	public static final String updateUser="update user set nickname=#{user.nickName},birthday=#{user.birthDate} ,email=#{user.email},telphone=#{user.phoneNumber},team_position=#{user.teamPosition},height=#{user.height},weight=#{user.weight} where id=#{user.id}";
+	public static final String updateUser="update user set username=#{user.loginId},password=#{user.loginPwd},nickname=#{user.nickName},birthday=#{user.birthDate} ,email=#{user.email},telphone=#{user.phoneNumber},team_position=#{user.teamPosition},height=#{user.height},weight=#{user.weight},ranking=#{user.ranking},icon_url=#{user.iconUrl} where id=#{user.id}";
 	public static final String getAllUsers="select * from user";
 	public static final String reserveMatch="insert into booking_match (user_id,match_id) values(#{userId},#{matchId})";
 	public static final String login="select * from user where username=#{loginId} and password=#{loginPwd}";
 	public static final String cancelReservedMatch="delete from booking_match where user_id=#{userId} and match_id=#{matchId}";
 	public static final String getAllMatches="select * from matchs";
 	
-	@Insert(createUser)
-	@Options(useGeneratedKeys=true, keyProperty="user.id" ,keyColumn="id")
-	public void createUser(@Param("user")User user);  
+	@Insert(createMatch)
+	@Options(useGeneratedKeys=true, keyProperty="match.id" ,keyColumn="id")
+	public void createMatch(@Param("match")Match match);
 	
-	@Select(getUserById)
+	@Select(getMatchById)   
 	@Results({
 		@Result(property="id",column="id"),
-		@Result(property="loginId",column="username"),
-		@Result(property="loginPwd",column="password"),
-		@Result(property="nickName",column="nickname"),
-		@Result(property="birthDate",column="birthday"),
-		@Result(property="email",column="email"),
-		@Result(property="phoneNumber",column="telphone"),
-		@Result(property="teamPosition",column="team_position"),
-		@Result(property="height",column="height"),
-		@Result(property="weight",column="weight"),
-		@Result(property="ranking",column="ranking"),
-		@Result(property="iconUrl",column="icon_url")
+		@Result(property="matchType",column="match_type"),
+		@Result(property="matchDate",column="match_date"),
+		@Result(property="matchLocation",column="match_location"),
+		@Result(property="isBooked",column="isBooked")
 		
 	})
-	public User getUserById(@Param("id")int id);
+	public Match getMatchById(@Param("id")int id);
+	
+	@Select(getMatchByPage)   
+	@Results({
+		@Result(property="id",column="id"),
+		@Result(property="matchType",column="match_type"),
+		@Result(property="matchDate",column="match_date"),
+		@Result(property="matchLocation",column="match_location"),
+		@Result(property="isBooked",column="isBooked")
+		
+	})
+	public List<Match> getMatchByPage(@Param("ps")int pageSize, @Param("pn")int pageNow);
 	
 	
 	@Select(getUserByLoginId)
@@ -100,7 +105,8 @@ public interface IUserDao {
 		@Result(property="id",column="id"),
 		@Result(property="matchType",column="match_type"),
 		@Result(property="matchDate",column="match_date"),
-		@Result(property="matchLocation",column="match_location")	
+		@Result(property="matchLocation",column="match_location"),
+		@Result(property="isBooked",column="isBooked")
 	})
 	public List<Match> getAllMatches();
 	

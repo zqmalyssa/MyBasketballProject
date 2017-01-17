@@ -2,81 +2,86 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="springform" %>
 <!-- forms -->
+
+<c:url value="/admin/publish" var="publishUrl" />
 <div class="card">
 
-	<form class="form-horizontal">
+	<springform:form  action="${publishUrl}" method="post" modelAttribute="match" cssClass="form-horizontal">
 		<fieldset>
 			
 			<!-- Form Name -->
-			<legend>新的比赛信息</legend>
+			<legend>发布新的比赛信息</legend>
 			
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="textinput">E-mail</label>  
+			  <label class="col-md-4 control-label" for="textinput">比赛类型</label>  
 			  <div class="col-md-4">
-			  <input id="textinput" name="textinput" type="text" placeholder="E-mail" class="form-control input-md">
-			    
+			  
+				  <springform:select  path="matchType"  cssClass="form-control input-md">
+	  					<springform:option value ="内部训练">内部训练</springform:option>
+	  					<springform:option value ="公司比赛">公司比赛</springform:option>
+				  </springform:select>
+				  
+				
 			  </div>
 			</div>
 			
-			<!-- Text input-->
+			<!-- date -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="textinput">Name</label>  
-			  <div class="col-md-4">
+			  <label class="col-md-4 control-label" for="textinput">比赛时间</label>  
+			  <div class="input-group date form_datetime col-md-4" data-date="2017-01-01" data-date-format="yyyy-mm-dd hh:ii" data-link-field="dtp_input1">
+			  <!--
 			  <input id="textinput" name="textinput" type="text" placeholder="Name" class="form-control input-md">
-			    
+			  -->
+                    	<input class="form-control" type="text" value=""  name="matchDate" >
+                    	 <!--  
+                    	<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    	-->
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 			  </div>
 			</div>
 			
 			<!-- Text input-->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="textinput">Sname</label>  
+			  <label class="col-md-4 control-label" for="textinput">比赛场地</label>  
 			  <div class="col-md-4">
-			  <input id="textinput" name="textinput" type="text" placeholder="Sname" class="form-control input-md">
+			  <springform:select id="select1" path="matchLocation"  cssClass="form-control input-md">
+  					<option value ="凤凰城">凤凰城</option>
+  					<option value ="东佳">东佳</option>
+  					<option value="维拓体育公园">维拓体育公园</option>
+  					<option value="户外">户外</option>
+			  </springform:select>
 			    
 			  </div>
 			</div>
 			
-			<!-- Select Basic -->
-			<div class="form-group">
-			  <label class="col-md-4 control-label" for="year">Select Year</label>
-			  <div class="col-md-4">
-			    <select id="year" name="year" class="form-control">
-			      <option value="1">1</option>
-			    </select>
-			  </div>
-			</div>
-			
-			<!-- Password input-->
-			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordinput">Renter Password </label>
-			  <div class="col-md-4">
-			    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md">
-			    
-			  </div>
-			</div>
-			
-			<!-- Password input-->
-			<div class="form-group">
-			  <label class="col-md-4 control-label" for="passwordinput">Password</label>
-			  <div class="col-md-4">
-			    <input id="passwordinput" name="passwordinput" type="password" placeholder="" class="form-control input-md" required="">
-			    
-			  </div>
-			</div>
 			
 			<!-- Button (Double) -->
 			<div class="form-group">
-			  <label class="col-md-4 control-label" for="button1id">Select to register</label>
-			  <div class="col-md-8">
-			    <button id="button1id" name="button1id" class="btn btn-success">Register</button>
-			    <button id="button2id" name="button2id" class="btn btn-default">Remove</button>
+			  <div class="col-md-6 control-label">
+			    <button id="button1id" type="submit" class="btn btn-success">Publish</button>
+			    <button id="button2id" name="button2id" class="btn btn-default">Cancel</button>
 			  </div>
 			</div>
 		
 		</fieldset>
-	</form>
-</div>  
+	</springform:form>
+</div> 
+
+<script type="text/javascript">
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	forceParse: 0,
+    showMeridian: 1
+});
+</script>
+ 
 <!-- forms -->
         

@@ -9,10 +9,16 @@
     <link href="<c:url value='/static/thirdParty/bootstrap-3.3.7-dist/css/bootstrap.min.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/userProfile.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/table.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/thirdParty/datetimepicker/css/bootstrap-datetimepicker.min.css' />" rel="stylesheet"></link>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
      <script src="<c:url value='/static/thirdParty/jquery/jquery-3.1.1.min.js' />"></script>
      <script src="<c:url value='/static/thirdParty/chart/Chart.bundle.min.js' />"></script>
+      <script src="<c:url value='/static/thirdParty/datetimepicker/js/bootstrap-datetimepicker.fr.js' />"></script>
+      <script src="<c:url value='/static/thirdParty/datetimepicker/js/bootstrap-datetimepicker.js' />"></script>
+      <script src="<c:url value='/static/thirdParty/bootstrap-3.3.7-dist/js/bootstrap.min.js' />"></script>
       <script src="<c:url value='/static/js/myChart.js' />"></script>
+      
 </head>
 
 <body>	
