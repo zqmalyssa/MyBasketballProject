@@ -13,6 +13,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.fm.xprj.model.Match;
+import com.fm.xprj.model.PersonalRecord;
 import com.fm.xprj.model.User;
 
 @Repository
@@ -29,6 +30,8 @@ public interface IAdminDao {
 	public static final String login="select * from user where username=#{loginId} and password=#{loginPwd}";
 	public static final String cancelReservedMatch="delete from booking_match where user_id=#{userId} and match_id=#{matchId}";
 	public static final String getAllMatches="select * from matchs";
+	public static final String createRecord = "insert into match_records (user_id, match_id, score, rebound, assist, block_shot, steal, teammate) values(#{pr.userId},#{pr.matchId},#{pr.score},#{pr.rebound},#{pr.assist},#{pr.blockShot},#{pr.steal},#{pr.teamMate})";
+	public static final String getRecordById = "";
 	
 	@Insert(createMatch)
 	@Options(useGeneratedKeys=true, keyProperty="match.id" ,keyColumn="id")
@@ -56,6 +59,20 @@ public interface IAdminDao {
 	})
 	public List<Match> getMatchByPage(@Param("ps")int pageSize, @Param("pn")int pageNow);
 	
+	@Insert(createRecord)
+	@Options(useGeneratedKeys=true, keyProperty="pr.id" ,keyColumn="id")
+	public PersonalRecord createRecord(@Param("pr")PersonalRecord pr);
+	
+	@Select(getRecordById)
+	@Results({
+		@Result(property="id",column="id"),
+		@Result(property="matchType",column="match_type"),
+		@Result(property="matchDate",column="match_date"),
+		@Result(property="matchLocation",column="match_location"),
+		@Result(property="isBooked",column="isBooked")
+		
+	})
+	public PersonalRecord getRecordById(@Param("id")int id);
 	
 	@Select(getUserByLoginId)
 	@Results({
